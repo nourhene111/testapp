@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/register_page.dart';
 import 'package:flutter_application_1/screens/ProfilePage.dart';
-import 'register_page.dart'; // Assurez-vous que ce fichier existe
+import 'home_page.dart'; // Make sure to import your HomePage
+
 
 class LoginPage extends StatelessWidget {
   final Color royalBlue = const Color.fromARGB(255, 9, 5, 238);

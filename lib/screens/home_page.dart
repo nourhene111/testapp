@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/login_page.dart';
 import '../screens/ProfilePage.dart';
 import '../screens/DetailPage.dart';
 import '../models/item_model.dart';
@@ -23,11 +24,13 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.black), // Drawer icon
-          onPressed: () {
-            Scaffold.of(context).openDrawer(); // Opens the drawer
-          },
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(Icons.menu, color: Colors.black), // Drawer icon
+            onPressed: () {
+              Scaffold.of(context).openDrawer(); // Opens the drawer
+            },
+          ),
         ),
         title: Text(
           'Home',
@@ -36,7 +39,7 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.person, color: Colors.black),  // Profile icon
+            icon: Icon(Icons.person, color: Colors.black), // Profile icon
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
             },
@@ -60,13 +63,15 @@ class HomePage extends StatelessWidget {
                 children: [
                   Icon(Icons.person, size: 80, color: Colors.black),
                   SizedBox(height: 10),
-                  Text('User Profile', style: TextStyle(fontSize: 18, color: Colors.black)),
+                  Text('William John Malik', style: TextStyle(fontSize: 16, color: Colors.black)),
+                  Text('Aggressive Investor', style: TextStyle(fontSize: 12, color: Colors.grey)),
                 ],
               ),
             ),
             ListTile(
               leading: Icon(Icons.person),
               title: Text('Profile'),
+              trailing: Icon(Icons.arrow_forward_ios, size: 16), // Arrow icon
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
               },
@@ -74,8 +79,91 @@ class HomePage extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.logout),
               title: Text('Logout'),
+              trailing: Icon(Icons.arrow_forward_ios, size: 16), // Arrow icon
               onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                 // Add logout logic here
+              },
+            ),
+            Divider(), // Divider between sections
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              trailing: Icon(Icons.arrow_forward_ios, size: 16), // Arrow icon
+              onTap: () {
+                // Navigate to Settings Page
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.receipt),
+              title: Text('E-Statement'),
+              trailing: Icon(Icons.arrow_forward_ios, size: 16), // Arrow icon
+              onTap: () {
+                // Navigate to E-Statement Page
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.code),
+              title: Text('Referral Code'),
+              trailing: Icon(Icons.arrow_forward_ios, size: 16), // Arrow icon
+              onTap: () {
+                // Navigate to Referral Code Page
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.question_answer),
+              title: Text('FAQs'),
+              trailing: Icon(Icons.arrow_forward_ios, size: 16), // Arrow icon
+              onTap: () {
+                // Navigate to FAQs Page
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.book),
+              title: Text('Our Handbook'),
+              trailing: Icon(Icons.arrow_forward_ios, size: 16), // Arrow icon
+              onTap: () {
+                // Navigate to Our Handbook Page
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.group),
+              title: Text('Community'),
+              trailing: Icon(Icons.arrow_forward_ios, size: 16), // Arrow icon
+              onTap: () {
+                // Navigate to Community Page
+              },
+            ),
+            // Bottom Navigation Bar
+            BottomNavigationBar(
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Accueil', // Home
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: 'Profil', // Profile
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.message),
+                  label: 'Messages', // Messages
+                ),
+              ],
+              currentIndex: 0, // You can manage this state with a state management solution
+              onTap: (index) {
+                // Handle navigation based on the index
+                switch (index) {
+                  case 0:
+                    Navigator.pop(context); // Close the drawer
+                    break;
+                  case 1:
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                    break;
+                  case 2:
+                    // Navigate to Messages Page (implement the page if needed)
+                    break;
+                }
               },
             ),
           ],
@@ -98,7 +186,7 @@ class HomePage extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.search, color: Colors.white),
+                        Icon(Icons.search, color: Colors.grey),
                         SizedBox(width: 8),
                         Expanded(
                           child: TextField(
