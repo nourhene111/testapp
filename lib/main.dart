@@ -1,15 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'splash_screen.dart'; // Ensure this file exists
+import 'screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
-      apiKey: "AIzaSyB2nXkFkqvROsDfGnpKyux6jFJ9hygKHhM",
-      appId: "com.example.flutter_application_1",
-      messagingSenderId: "messagingSenderId",
-      projectId: "miniproject-a059a",
+      apiKey: "YOUR_API_KEY",
+      appId: "YOUR_APP_ID",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      projectId: "YOUR_PROJECT_ID",
     ),
   );
   runApp(MyApp());
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashScreen(), // Show SplashScreen first
+      home: SplashScreen(), // Start with SplashScreen
     );
   }
 }

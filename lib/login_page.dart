@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'register_page.dart'; // Ensure this file exists
+import 'package:flutter_application_1/screens/ProfilePage.dart';
+import 'register_page.dart'; // Assurez-vous que ce fichier existe
 
 class LoginPage extends StatelessWidget {
-  final Color royalBlue = const Color.fromARGB(255, 9, 5, 238); // Royal blue color
+  final Color royalBlue = const Color.fromARGB(255, 9, 5, 238);
 
   @override
   Widget build(BuildContext context) {
@@ -18,21 +19,18 @@ class LoginPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Image at the top
               Container(
                 width: 150,
                 height: 200,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/ice.jpg'), // Ensure this image exists
+                    image: AssetImage('assets/images/ice.jpg'),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
                 ),
               ),
               SizedBox(height: 20),
-
-              // Title "Welcome Back" and subtitle
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
@@ -49,8 +47,6 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-
-              // Email and password fields
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
@@ -90,8 +86,11 @@ class LoginPage extends StatelessWidget {
                     SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {
-                        // Action for login button
-                        // Implement your login logic here
+                        // Naviguer vers la page de profil
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ProfilePage()),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: royalBlue,
