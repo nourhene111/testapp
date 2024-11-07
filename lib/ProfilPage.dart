@@ -195,7 +195,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        selectedGender = 'Female';
+                        selectedGender = 'male';
                       });
                     },
                     child: Container(
